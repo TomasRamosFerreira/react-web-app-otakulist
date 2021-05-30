@@ -1,0 +1,74 @@
+$color-primary: orange;
+$color-primary-white: rgb(252, 186, 64);
+$color-primary-dark: rgb(197, 128, 0);
+$color-light: white;
+
+.poster{
+    text-decoration: none;
+}
+
+.poster-link {
+    text-decoration: none;
+}
+/*.card-wrapper {
+    width: 20%;
+}*/
+
+.card-overlay {
+    margin-bottom: 10px;
+    text-align: center;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 3px;
+    text-decoration: none;
+    color: orange;
+    margin-top: -5vh;
+    font-size: 1.5rem;
+}
+
+.card-title {
+    text-decoration: none;
+    color: black;
+    //margin-top: 6vh;
+    text-align: center;
+    justify-content: center;
+}
+
+.card-image {
+    margin-left: 1.25rem;
+    opacity: 1;
+    display: block;
+    text-decoration: none;
+    img {
+        width: 195px;
+        height: 277px;
+        margin: 0 auto;
+        object-fit: fill;
+        transition: opacity .4s linear;
+        max-width: 100%;
+        border-style: none;
+    }
+
+    &:hover{
+        opacity: 0.75;
+        .card-overlay {
+            opacity: 1;
+        }
+    }
+}
+
+.detail-button {
+    margin-right: 1rem;
+    position: relative;
+    width: 50%;
+    color: $color-light;
+    background-color: $color-primary;
+    border-color: $color-primary;
+    &:hover{
+        color: $color-light;
+        background-color: $color-primary-white;
+    }
+}

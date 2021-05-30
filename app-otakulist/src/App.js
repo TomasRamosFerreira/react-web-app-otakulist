@@ -9,13 +9,12 @@ function App() {
   return (
     <Router>
       <Nav />
-      <div className="container">  
+      <div className="main">
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/Library" exact component={Library}/>
           <Route path="/Anime/:id" component={Detail} />
         </Switch>
-        <h1>U</h1>
       </div>
     </Router>
   );

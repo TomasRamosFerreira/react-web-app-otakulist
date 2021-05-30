@@ -4,20 +4,21 @@ import Detail from './Detail';
 import Slidebar from '../components/Slidebar';
 import AnimeCard from '../components/AnimeCard';
 import Error from '../components/Error/FetchError/FetchError';
+import '../assets/home.scss'
 
 function Home() {
     useEffect(() => {
-        /*const animes = fetchAnimes("action");
+        /*const animes = fetchAnimes("Android");
         console.log(animes);*/
-        //setActionAcnimes(state => fetchAnimes("action"));
+        //setAndroidAcnimes(state => fetchAnimes("Android"));
         fetchAnimes();
     }, []);
 
     const [trendingAnimes, setTrendingAcnimes] = useState([]);
-    const [actionAnimes, setActionAcnimes] = useState([]);
-    const [adventureAnimes, setAdventureAcnimes] = useState([]);
+    const [androidAnimes, setAndroidAcnimes] = useState([]);
+    const [samuraiAnimes, setSamuraiAnimes] = useState([]);
     const [middleSchooleAnimes, setMiddleSchoolAcnimes] = useState([]);
-    //let actionAnimes = [];
+    //let AndroidAnimes = [];
 
     const fetchAnimesURL = (category) => {
         return (`https://kitsu.io/api/edge/anime?filter[categories]=${category}&page[limit]=4&include=categories,characters&sort=-createdAt`);
@@ -25,10 +26,10 @@ function Home() {
 
     const fetchAnimes = () => {
         const trendingAnimesData = axios.get(`https://kitsu.io/api/edge/trending/anime`);
-        const actionAnimesData = axios.get(fetchAnimesURL("action"));
-        const adventureAnimesData = axios.get(fetchAnimesURL("adventure"));
+        const AndroidAnimesData = axios.get(fetchAnimesURL("Android"));
+        const samuraiAnimesData = axios.get(fetchAnimesURL("Samurai"));
         const middleSchooleAnimesData = axios.get(fetchAnimesURL("Middle School"));
-        axios.all([trendingAnimesData, actionAnimesData, adventureAnimesData, middleSchooleAnimesData]).then(
+        axios.all([trendingAnimesData, AndroidAnimesData, samuraiAnimesData, middleSchooleAnimesData]).then(
             axios.spread((...allData) => {
                 console.log("trending");
                 console.log(allData[0].data.data);
@@ -36,42 +37,44 @@ function Home() {
                 console.log(allData[2].data.data);
 
                 setTrendingAcnimes(allData[0].data.data.slice(0,4));
-                setActionAcnimes(allData[1].data.data);
-                setAdventureAcnimes(allData[2].data.data);
+                setAndroidAcnimes(allData[1].data.data);
+                setSamuraiAnimes(allData[2].data.data);
                 setMiddleSchoolAcnimes(allData[3].data.data);
             })
         );
     };
 
     return (
-        <div className="row">
-            <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
-                <Slidebar />
-            </div>
-            <div className="col-10">
-                <h2>Trending Animes</h2>
-                <div className="row">    
-                    {trendingAnimes.map(anime => (
-                        <AnimeCard anime={anime} key={anime.id} />
-                    ))}
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                    <Slidebar />
                 </div>
-                <h2>Action</h2>
-                <div className="row">    
-                    {actionAnimes.map(anime => (
-                        <AnimeCard anime={anime} key={anime.id} />
-                    ))}
-                </div>
-                <h2>Adventure</h2>
-                <div className="row">    
-                    {adventureAnimes.map(anime => (
-                        <AnimeCard anime={anime} key={anime.id} />
-                    ))}
-                </div>
-                <h2>Middle School</h2>
-                <div className="row">    
-                    {middleSchooleAnimes.map(anime => (
-                        <AnimeCard anime={anime} key={anime.id} />
-                    ))}
+                <div className="col-10">
+                    <h2>Trending Animes</h2>
+                    <div className="row box">    
+                        {trendingAnimes.map(anime => (
+                            <AnimeCard anime={anime} key={anime.id} />
+                        ))}
+                    </div>
+                    <h2>Android</h2>
+                    <div className="row box">    
+                        {androidAnimes.map(anime => (
+                            <AnimeCard anime={anime} key={anime.id} />
+                        ))}
+                    </div>
+                    <h2>Samurai</h2>
+                    <div className="row box">    
+                        {samuraiAnimes.map(anime => (
+                            <AnimeCard anime={anime} key={anime.id} />
+                        ))}
+                    </div>
+                    <h2>Middle School</h2>
+                    <div className="row box">    
+                        {middleSchooleAnimes.map(anime => (
+                            <AnimeCard anime={anime} key={anime.id} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

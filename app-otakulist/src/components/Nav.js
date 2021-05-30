@@ -1,9 +1,19 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom';
+import '../assets/nav.scss';
 
 function Nav() {
+    const [nav, setNav] = useState(false);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50)
+            setNav(true);
+        else
+            setNav(false);
+    });
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className={`navbar navbar-expand-lg sticky-top ${nav ? "nav-active navbar-light" : "nav-inactive navbar-dark"}`} >
             <div className="container-fluid">
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -20,8 +30,8 @@ function Nav() {
                             </Link>
                         </li>
                     </ul>
-                    <form className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <form className="d-flex w-100">
+                        <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" />
                     </form>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Error from '../components/Error/FetchError/FetchError';
 import axios from 'axios';
+import '../assets/detail.scss';
 
 function Detail({match}) {
     useEffect(() => {
@@ -120,62 +121,86 @@ function Detail({match}) {
         return (<Error />);
     } else {
         return (
-            <div className="row">
-                <div className="col-lg-4 col-xl-4 col-md-12 col-sm-12">
-                    <img src={anime.attributes.posterImage.small} alt='posterImage'/>
-                    {!libraryStatus ?
-                        <button type="button" className="btn btn-success btn-block" onClick={addAnimeToLibrary}>Add to Library</button> :
-                        <button type="button" className="btn btn-danger btn-block" onClick={removeAnimeFromLibrary}>Remove from Library</button>
-                    }
-                </div>
-                <div className="col-lg-5 col-xl-5 col-md-12 col-sm-12">
-                    <h1>
-                        {anime.attributes.titles.en ?
-                            anime.attributes.titles.en :
-                            anime.attributes.titles.en_jp
+            <div className="deitails">
+                <div className="row">
+                    <div className="user-cover">
+                        {anime.attributes.coverImage !== null ?
+                            <div className="cover-image" style={{backgroundImage: `url(${anime.attributes.coverImage.original})`}} alt='coverImage'>
+                                <div className="dark-cover-overlay">
+                                </div>
+                            </div> :
+                            <div className="cover-image" style={{backgroundImage: `url(${anime.attributes.posterImage.original})`}} alt='coverImage'>
+                                <div className="dark-cover-overlay">
+                                </div>
+                            </div>
                         }
-                    </h1>
-                    <p className="card-text">
-                        {anime.attributes.synopsis ?
-                            anime.attributes.synopsis :
-                            anime.attributes.description
-                        }
-                    </p>
+                    </div>
                 </div>
-                <div className="col-lg-3 col-xl-3 col-md-12 col-sm-12">
-                    <table className="table table-hover" style={{backgroundColor: "white", color: "orange"}}>
-                        <thead>
-                            <tr>
-                                <th scope="col">Info</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    Episodes
-                                </td>
-                                <td>
-                                    {anime.attributes.episodeCount}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Episode Length
-                                </td>
-                                <td>
-                                    {anime.attributes.episodeLength}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    End Date
-                                </td>
-                                <td>
-                                    {anime.attributes.endDate}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                            <div className="is-sticky media-sidebar--sticky">
+                                <div className="row lazy-image ember-view slide-top">
+                                    <img src={anime.attributes.posterImage.small} alt='posterImage'/>
+                                </div>
+                                <div className="row library-state" style={{marginTop: "25px"}}>
+                                    {!libraryStatus ?
+                                        <button type="button" className="btn btn-success btn-block button--secondary" onClick={addAnimeToLibrary}>Add to Library</button> :
+                                        <button type="button" className="btn btn-danger btn-block button--secondary" onClick={removeAnimeFromLibrary}>Remove from Library</button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-lg-8 col-xl-8 col-md-12 col-sm-12">
+                            <h1>
+                                {anime.attributes.titles.en ?
+                                    anime.attributes.titles.en :
+                                    anime.attributes.titles.en_jp
+                                }
+                            </h1>
+                            <p className="card-text">
+                                {anime.attributes.synopsis ?
+                                    anime.attributes.synopsis :
+                                    anime.attributes.description
+                                }
+                            </p>
+                        </div>
+                        <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                            <table className="table table-hover" style={{backgroundColor: "white", color: "orange"}}>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Info</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            Episodes
+                                        </td>
+                                        <td>
+                                            {anime.attributes.episodeCount}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Episode Length
+                                        </td>
+                                        <td>
+                                            {anime.attributes.episodeLength}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            End Date
+                                        </td>
+                                        <td>
+                                            {anime.attributes.endDate}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

@@ -1,0 +1,46 @@
+$color-primary: orange;
+$color-primary-white: rgb(252, 186, 64);
+$color-primary-dark: rgb(197, 128, 0);
+$color-light: white;
+
+.filters-box{
+    justify-content: center;
+    background-color: $color-light;
+    padding: 1rem;
+}
+
+.categories-filter{
+    margin: 1px;
+    
+    .category{
+        margin: 0.25rem;
+        text-decoration: none;
+        color: $color-primary;
+    }
+}
+
+.filters-titles{
+    text-align: center;
+    margin-right: 1rem;
+    //color: $color-primary;
+}
+
+.order-filter {
+    margin: 1rem;
+}
+
+.submit {
+    position: relative;
+    width: 100%;
+    color: $color-light;
+    background-color: $color-primary;
+    border-color: $color-primary;
+    &:hover{
+        color: $color-light;
+        background-color: $color-primary-white;
+    }
+}
+
+.order-filter-options {
+    color: $color-primary;
+}

@@ -34,7 +34,7 @@ function Library() {
     };
 
     return (
-        <div>
+        <div className="container">
             <h1>Library</h1>
         </div>
     )

@@ -1,0 +1,107 @@
+$color-primary: orange;
+$color-primary-white: rgb(252, 186, 64);
+$color-primary-dark: rgb(197, 128, 0);
+$color-darker: rgb(56, 56, 56);
+$color-secondary: white;
+$color-black: black;
+$color-terceiary: rgb(243, 242, 242);
+
+*{
+    transition: all .2s ease;
+}
+
+.nav-inactive{
+    color: transparent;
+    background-color: transparent;
+    .navbar-nav .nav-link {
+        color: $color-primary;
+        &:hover{
+            color: $color-primary-white;
+        }
+    }
+    .search-box{
+        color: $color-primary;
+        background-color: transparent;
+        border: solid transparent 1px;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $color-primary;
+            opacity: 1; /* Firefox */
+        }
+        &:hover{
+            color: $color-primary;
+            background-color: transparent;
+            border: solid $color-primary 1px;
+        }
+    }
+}
+
+.nav-active{
+    /*color: $color-primary;
+    background-color: $color-primary;
+    .navbar-nav .nav-link {
+        color: $color-secondary;
+        &:hover{
+            color: $color-secondary;
+        }
+    }
+    .search-box{
+        background-color: transparent;
+        color: $color-secondary;
+        border: solid transparent 1px;
+        &::placeholder {
+            color: $color-secondary;
+            opacity: 1;
+        }
+        &:hover{
+            color: $color-secondary;
+            background-color: transparent;
+            border: solid $color-secondary 1px;
+        }
+    }*/
+
+    color: transparent;
+    background-color: $color-darker;
+    .navbar-nav .nav-link {
+        color: $color-primary;
+        &:hover{
+            color: $color-primary-white;
+        }
+    }
+    .search-box{
+        color: $color-primary;
+        background-color: transparent;
+        border: solid transparent 1px;
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $color-primary;
+            opacity: 1; /* Firefox */
+        }
+        &:hover{
+            color: $color-primary;
+            background-color: transparent;
+            border: solid $color-primary 1px;
+        }
+    }
+}
+
+.link{
+    color: $color-secondary;
+}
+
+/*.search-box{
+    background-color: transparent;
+    color: $color-primary;
+    border: solid $color-primary 1px;
+    &::placeholder {
+        color: $color-primary;
+        opacity: 1;
+    }
+    &:hover{
+        color: $color-primary;
+        background-color: transparent;
+        border: solid $color-primary 1px;
+    }
+}*/
+
+.active{
+    color: $color-primary-dark;
+}
