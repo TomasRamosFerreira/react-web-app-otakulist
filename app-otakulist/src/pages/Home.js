@@ -54,25 +54,33 @@ function Home() {
                     <h2>Trending Animes</h2>
                     <div className="row box">    
                         {trendingAnimes.map(anime => (
-                            <AnimeCard anime={anime} key={anime.id} />
+                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                                <AnimeCard anime={anime} key={anime.id} />
+                            </div>
                         ))}
                     </div>
                     <h2>Android</h2>
                     <div className="row box">    
                         {androidAnimes.map(anime => (
-                            <AnimeCard anime={anime} key={anime.id} />
+                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                                <AnimeCard anime={anime} key={anime.id} />
+                            </div>
                         ))}
                     </div>
                     <h2>Samurai</h2>
                     <div className="row box">    
                         {samuraiAnimes.map(anime => (
-                            <AnimeCard anime={anime} key={anime.id} />
+                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                                <AnimeCard anime={anime} key={anime.id} />
+                            </div>
                         ))}
                     </div>
                     <h2>Middle School</h2>
                     <div className="row box">    
                         {middleSchooleAnimes.map(anime => (
-                            <AnimeCard anime={anime} key={anime.id} />
+                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                                <AnimeCard anime={anime} key={anime.id} />
+                            </div>
                         ))}
                     </div>
                 </div>

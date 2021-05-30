@@ -138,8 +138,8 @@ function Detail({match}) {
                 </div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
-                            <div className="is-sticky media-sidebar--sticky">
+                        <div className="col-lg-3 col-xl-2 col-md-12 col-sm-12">
+                            <div className="is-sticky media-sidebar--sticky media-sidebar">
                                 <div className="row lazy-image ember-view slide-top">
                                     <img src={anime.attributes.posterImage.small} alt='posterImage'/>
                                 </div>
@@ -151,7 +151,7 @@ function Detail({match}) {
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-8 col-xl-8 col-md-12 col-sm-12">
+                        <div className="col-lg-6 col-xl-7 col-md-12 col-sm-12 detail-content detail-sinopse">
                             <h1>
                                 {anime.attributes.titles.en ?
                                     anime.attributes.titles.en :
@@ -165,7 +165,7 @@ function Detail({match}) {
                                 }
                             </p>
                         </div>
-                        <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                        <div className="col-lg-3 col-xl-3 col-md-12 col-sm-12 detail-content">
                             <table className="table table-hover" style={{backgroundColor: "white", color: "orange"}}>
                                 <thead>
                                     <tr>
@@ -191,10 +191,42 @@ function Detail({match}) {
                                     </tr>
                                     <tr>
                                         <td>
+                                            Start Date
+                                        </td>
+                                        <td>
+                                            {anime.attributes.startDate}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
                                             End Date
                                         </td>
                                         <td>
                                             {anime.attributes.endDate}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Age Rating
+                                        </td>
+                                        <td>
+                                            {anime.attributes.ageRatingGuide}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Status
+                                        </td>
+                                        <td>
+                                            {anime.attributes.status}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Show type
+                                        </td>
+                                        <td>
+                                            {anime.attributes.showType}
                                         </td>
                                     </tr>
                                 </tbody>

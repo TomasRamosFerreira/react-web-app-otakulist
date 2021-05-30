@@ -12,7 +12,7 @@ function AnimeCard({anime}) {
                         </p>
     */
     return (
-        <div className="col-lg col-xl col-md-6 col-sm-6 poster">
+        <div className="poster">
             <Link className="poster-link" to={`/Anime/${anime.id}`}>
                 <div className="card-wrapper" key={anime.id}>
                     <div className="card-image">

@@ -84,6 +84,16 @@ function Slide() {
                         </div>
     */
 
+    /*
+                    <div className="order-filter">
+                        <h4 className="filters-titles">Order</h4>
+                        <select className="form-select order-filter-options" aria-label="Order" onChange={changeOrder}>
+                            <option value="1" selected>Newer</option>
+                            <option value="2">Older</option>
+                        </select>
+                    </div>
+                    <button type="submit" className="btn submit">Submit</button>
+    */
     if (!isLoaded)
         return (
             <div className="spinner-border text-warning" role="status">
@@ -108,14 +118,6 @@ function Slide() {
                             ))}
                         </div>
                     </div>
-                    <div className="order-filter">
-                        <h4 className="filters-titles">Order</h4>
-                        <select className="form-select order-filter-options" aria-label="Order" onChange={changeOrder}>
-                            <option value="1" selected>Newer</option>
-                            <option value="2">Older</option>
-                        </select>
-                    </div>
-                    <button type="submit" className="btn submit">Submit</button>
                 </form>
             </div>
         )

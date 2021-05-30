@@ -13,6 +13,9 @@ $color-terceiary: rgb(243, 242, 242);
 .nav-inactive{
     color: transparent;
     background-color: transparent;
+    &:hover{
+        background-color: $color-darker;
+    }
     .navbar-nav .nav-link {
         color: $color-primary;
         &:hover{
@@ -104,4 +107,9 @@ $color-terceiary: rgb(243, 242, 242);
 
 .active{
     color: $color-primary-dark;
+}
+
+.logo {
+    max-width: 2rem;
+    max-height: 2rem;
 }
