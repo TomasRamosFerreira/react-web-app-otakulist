@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Error from '../components/Error/FetchError/FetchError';
 import axios from 'axios';
 import '../assets/detail.scss';
@@ -93,6 +95,8 @@ function Detail({match}) {
         .catch(err => {
             console.log(err);
         })
+
+        notify("Successfully added", 1);
     };
 
     const removeAnimeFromLibrary = () => {
@@ -109,6 +113,31 @@ function Detail({match}) {
         .catch(err => {
             console.log(err);
         })
+
+        notify("Successfully removed", 2);
+    };
+
+    const notify = (notification, type) => {
+        switch(type){
+            case 1: // Success
+                toast.success(notification);
+                break;
+            case 2: // Error
+                toast.error(notification);
+                break;
+            case 3: // Warning
+                toast.warn(notification);
+                break;
+            case 4: // Info
+                toast.info(notification);
+                break;
+            case 5: // Dark
+                toast.dark(notification);
+                break;
+            default:
+                toast(notification);
+                break;
+        }
     };
 
     if (!isLoaded) {
@@ -148,6 +177,7 @@ function Detail({match}) {
                                         <button type="button" className="btn btn-success btn-block button--secondary" onClick={addAnimeToLibrary}>Add to Library</button> :
                                         <button type="button" className="btn btn-danger btn-block button--secondary" onClick={removeAnimeFromLibrary}>Remove from Library</button>
                                     }
+                                    <ToastContainer />
                                 </div>
                             </div>
                         </div>
