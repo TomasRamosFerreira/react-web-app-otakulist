@@ -47,14 +47,14 @@ function Home() {
     return (
         <div className="container">
             <div className="row">
-                <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12 home-box">
                     <Slidebar />
                 </div>
                 <div className="col-10">
                     <h2>Trending Animes</h2>
                     <div className="row box">    
                         {trendingAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                            <div className="col-lg col-xl col-md-6 col-sm-12 home-box">
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -62,7 +62,7 @@ function Home() {
                     <h2>Android</h2>
                     <div className="row box">    
                         {androidAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                            <div className="col-lg col-xl col-md-6 col-sm-12 home-box">
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -70,7 +70,7 @@ function Home() {
                     <h2>Samurai</h2>
                     <div className="row box">    
                         {samuraiAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                            <div className="col-lg col-xl col-md-6 col-sm-12 home-box">
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -78,7 +78,7 @@ function Home() {
                     <h2>Middle School</h2>
                     <div className="row box">    
                         {middleSchooleAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6">
+                            <div className="col-lg col-xl col-md-6 col-sm-12 home-box">
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
