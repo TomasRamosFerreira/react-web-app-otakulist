@@ -96,7 +96,7 @@ function Detail({match}) {
             console.log(err);
         })
 
-        notify("Successfully added", 1);
+        notify("Successfully added", 3);
     };
 
     const removeAnimeFromLibrary = () => {
@@ -114,7 +114,7 @@ function Detail({match}) {
             console.log(err);
         })
 
-        notify("Successfully removed", 2);
+        notify("Successfully removed", 3);
     };
 
     const notify = (notification, type) => {
@@ -177,7 +177,8 @@ function Detail({match}) {
                                         <button type="button" className="btn btn-success btn-block button--secondary" onClick={addAnimeToLibrary}>Add to Library</button> :
                                         <button type="button" className="btn btn-danger btn-block button--secondary" onClick={removeAnimeFromLibrary}>Remove from Library</button>
                                     }
-                                    <ToastContainer />
+                                    <ToastContainer 
+                                        newestOnTop/>
                                 </div>
                             </div>
                         </div>
