@@ -4,18 +4,33 @@ import AnimeCard from '../components/AnimeCard';
 import '../assets/animesList.scss';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Slidebar from '../components/Slidebar';
+import { useHistory } from 'react-router-dom';
 
-function AnimesList() {
-    
+function AnimesList({match}) {
+    const history = useHistory();
 
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
     const [animes, setAnimes] = useState([]);
     const [page, setPage] = useState(0);
     const [offset, setOffset] = useState(20);
+    const [category, setCategory] = useState(match.params.category);
+    const [search, setSearch] = useState(match.params.search);
+
+    const verifyParams = () => {
+        let queryurl = ``;
+        if (category)
+            queryurl += `&filter[categories]=${category}`;
+        if (search)
+            queryurl += `&filter[text]=${search}`;
+        else
+            queryurl += '&sort=-updatedAt';
+        
+        return queryurl;
+    };
 
     const getAnimes = async () => {
-        await fetch(`https://kitsu.io/api/edge/anime?sort=-updatedAt&page[limit]=${offset}&page[offset]=${page * offset}`)
+        await fetch(`https://kitsu.io/api/edge/anime?page[limit]=${offset}&page[offset]=${page * offset}${verifyParams()}`)
         .then(res => res.json())
         .then(
             (res) => {
@@ -32,10 +47,33 @@ function AnimesList() {
         );
     };
 
+    
+
     useEffect(() => {
+        console.log(match);
         getAnimes();
         console.log("Carregou página: " + page * 20);
     }, [page]);
+
+    /*useEffect(() => {
+        return history.listen((location) => { 
+            console.log(`You changed the page to: ${location.pathname}`);
+            setCategory(match.params.category);
+            setSearch(match.params.search);
+            setAnimes([]);
+            setPage(0);
+            getAnimes();
+            console.log(match);
+        });
+    }, [history]);*/
+
+    useEffect(() => {
+        setCategory(match.params.category);
+        setSearch(match.params.search);
+        setAnimes([]);
+        setPage(0);
+        getAnimes();
+    },[match.params]);
 
     // <AnimeCard anime={anime} key={anime.id} />
     return (

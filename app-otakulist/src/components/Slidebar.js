@@ -110,11 +110,11 @@ function Slide() {
                         <h4 className="filters-titles">Categories</h4>
                         <div className="list-group">
                             {categories.map(category => (
-                                <a className="list-group-item list-group-item-action category">
-                                    <Link className="category" to={`/Animes/${category.attributes.title}`}>
+                                <Link className="category" to={`/Animes/Category/${category.attributes.title}`}>
+                                    <a className="list-group-item list-group-item-action category">
                                         {category.attributes.title}
-                                    </Link>
-                                </a>
+                                    </a>
+                                </Link>
                             ))}
                         </div>
                     </div>

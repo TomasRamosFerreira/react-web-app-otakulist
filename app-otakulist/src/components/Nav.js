@@ -4,6 +4,7 @@ import '../assets/nav.scss';
 
 function Nav() {
     const [nav, setNav] = useState(false);
+    const [search, setSearch] = useState(``);
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50)
@@ -11,6 +12,15 @@ function Nav() {
         else
             setNav(false);
     });
+
+    const handleSearchChange = (event) => {
+        setSearch(event.target.value);
+    };
+
+    const handleSearchSubmit = (event) => {
+        event.preventDefault();
+        window.location.href = `/Animes/Search/${search}`;
+    };
 
     return (
         <nav className={`navbar navbar-expand-lg sticky-top ${nav ? "nav-active navbar-dark" : "nav-inactive navbar-light"}`} >
@@ -39,8 +49,8 @@ function Nav() {
                             </Link>
                         </li>
                     </ul>
-                    <form className="d-flex w-100">
-                        <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" />
+                    <form className="d-flex w-100" onSubmit={(e) => handleSearchSubmit(e)}>
+                        <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" onChange={(e) => handleSearchChange(e)} />
                     </form>
                 </div>
             </div>
