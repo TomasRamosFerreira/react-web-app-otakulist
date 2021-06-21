@@ -2,6 +2,7 @@ $color-primary: orange;
 $color-primary-white: rgb(252, 186, 64);
 $color-primary-dark: rgb(197, 128, 0);
 $color-light: white;
+$color-background: #f7f7f7;
 
 .filters-box{
     justify-content: center;
@@ -12,10 +13,38 @@ $color-light: white;
 .categories-filter{
     margin: 1px;
     
-    .category{
-        margin: 0.25rem;
-        text-decoration: none;
-        color: $color-primary;
+    .category-box {
+        cursor: pointer;
+        text-align: center;
+        margin-top: 0.25rem;
+        border: solid 2px $color-background;
+
+        .category-link {
+            text-decoration: none;
+            color: $color-primary;
+            
+            .category {
+                width: 100%;
+                //padding: 0.25rem;
+                text-decoration: none;
+                color: $color-primary;
+            }
+        }
+        
+        &:hover{
+            background-color: $color-primary;
+            .category-link {
+                text-decoration: none;
+                color: $color-light;
+                
+                .category {
+                    width: 100%;
+                    //padding: 0.25rem;
+                    text-decoration: none;
+                    color: $color-light;
+                }
+            }
+        }
     }
 }
 
@@ -25,9 +54,17 @@ $color-light: white;
     //color: $color-primary;
 }
 
-.category {
-    text-align: center;
-}
+/*.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    // margin-bottom: -1px;
+    // background-color: #fff;
+    // border: 1px solid #ddd;
+    width: 50%;
+    float: left;
+    text-align: left;
+}*/
 
 .order-filter {
     margin: 1rem;

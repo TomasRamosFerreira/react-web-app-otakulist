@@ -1,4 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import Loader from "react-loader-spinner";
+import Error from '../components/Error/FetchError/FetchError';
 import Detail from './Detail';
 import AnimeCard from '../components/AnimeCard';
 import '../assets/animesList.scss';
@@ -76,33 +78,47 @@ function AnimesList({match}) {
     },[match.params]);
 
     // <AnimeCard anime={anime} key={anime.id} />
-    return (
-        <div className="container">
-            <dic className="row">
-                <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
-                    <Slidebar />
-                </div>
-                <div className="col-lg-10 col-xl-10 col-md-12 col-sm-12">
-                    <div className="row animes-list-area">
-                        <InfiniteScroll
-                            dataLength={animes.length} //This is important field to render the next data
-                            next={() => setPage(page + 1)}
-                            hasMore={true}
-                            className="row"
-                            >
-                            <div className="row">
-                                {animes.map(anime => (
-                                    <div className="col-lg-4 col-xl-3 col-md-6 col-sm-6 animes-list">
-                                        <AnimeCard anime={anime} key={anime.id} />
-                                    </div>
-                                ))}
-                            </div>
-                        </InfiniteScroll>
+    if (!isLoaded)
+        return (
+            <Loader
+                type="BallTriangle"
+                color="#ffa500"
+                height={100}
+                width={100}
+                timeout={3000} //3 secs
+            />
+        );
+    else if (error)
+        return <Error />
+    else {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-2 col-xl-2 col-md-12 col-sm-12">
+                        <Slidebar />
+                    </div>
+                    <div className="col-lg-10 col-xl-10 col-md-12 col-sm-12">
+                        <div className="row animes-list-area">
+                            <InfiniteScroll
+                                dataLength={animes.length} //This is important field to render the next data
+                                next={() => setPage(page + 1)}
+                                hasMore={true}
+                                className="row"
+                                >
+                                <div className="row">
+                                    {animes.map(anime => (
+                                        <div className="col-lg-4 col-xl-3 col-md-6 col-sm-6 animes-list">
+                                            <AnimeCard anime={anime} key={anime.id} />
+                                        </div>
+                                    ))}
+                                </div>
+                            </InfiniteScroll>
+                        </div>
                     </div>
                 </div>
-            </dic>
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
 export default AnimesList

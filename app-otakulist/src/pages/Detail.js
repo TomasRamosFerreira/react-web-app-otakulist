@@ -54,8 +54,8 @@ function Detail({match}) {
                     setLibraryStatus(true);
                     setEntryID(res.data[0].id);
                 } else
-                setLibraryStatus(false);
-                console.log(res.data[0]);
+                    setLibraryStatus(false);
+                console.log(res.data);
             },
             (err) => {
                 setIsLoaded(true);
@@ -83,7 +83,7 @@ function Detail({match}) {
     const addAnimeToLibrary = () => {
         const headers = {
             'Content-Type': 'application/vnd.api+json', 
-            'Authorization': 'Bearer 09e09f7905a35e79e750510de847a51bc01aaa6f7862912b5fe37a617c902f33'
+            'Authorization': 'Bearer 4942bdfa081c258f2b13b721ab727d64aa08a53e1a105b8301702cbbcad36878'
         };
 
         axios.post(`https://kitsu.io/api/edge/library-entries`, animeEntry, { headers })
@@ -101,7 +101,7 @@ function Detail({match}) {
 
     const removeAnimeFromLibrary = () => {
         const headers = {
-            'Authorization': 'Bearer 09e09f7905a35e79e750510de847a51bc01aaa6f7862912b5fe37a617c902f33'
+            'Authorization': 'Bearer 4942bdfa081c258f2b13b721ab727d64aa08a53e1a105b8301702cbbcad36878'
         };
 
         axios.delete(`https://kitsu.io/api/edge/library-entries/${entryID}`, {headers})
@@ -178,18 +178,19 @@ function Detail({match}) {
                                         <button type="button" className="btn btn-danger btn-block button--secondary" onClick={removeAnimeFromLibrary}>Remove from Library</button>
                                     }
                                     <ToastContainer 
-                                        newestOnTop/>
+                                        newestOnTop
+                                    />
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 col-xl-7 col-md-12 col-sm-12 detail-content detail-sinopse">
-                            <h1>
+                            <h1 className="card-description-title">
                                 {anime.attributes.titles.en ?
                                     anime.attributes.titles.en :
                                     anime.attributes.titles.en_jp
                                 }
                             </h1>
-                            <p className="card-text">
+                            <p className="card-description-text">
                                 {anime.attributes.synopsis ?
                                     anime.attributes.synopsis :
                                     anime.attributes.description

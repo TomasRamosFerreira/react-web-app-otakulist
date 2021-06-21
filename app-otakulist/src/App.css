@@ -5,3 +5,12 @@
 body {
   background-color: #f7f7f7;
 }
+
+.main {
+  margin-top: 1rem;
+}
+
+.is-sticky {
+  position: sticky;
+  top: 65px;
+}

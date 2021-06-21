@@ -1,11 +1,10 @@
 import React from 'react'
 import '../../../assets/error.scss';
 
-function FetchError() {
+function fetchEmpty() {
     return (
         <div className="message-box">
-            <h1>Sory :(</h1>
-            <p>Error Fetching data!</p>
+            <h1>Seen's like theres nothing here</h1>
             <div className="buttons-con">
                 <div className="action-link-wrap">
                     <a href="/" className="link-button">Go to Home Page</a>
@@ -15,4 +14,4 @@ function FetchError() {
     )
 }
 
-export default FetchError
+export default fetchEmpty

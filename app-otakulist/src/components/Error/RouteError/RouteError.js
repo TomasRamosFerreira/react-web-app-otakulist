@@ -1,5 +1,5 @@
 import React from 'react'
-import './RouteError.scss';
+import '../../../assets/error.scss';
 
 function FetchError() {
     return (
@@ -9,7 +9,7 @@ function FetchError() {
                 <p>Page not found</p>
                 <div className="buttons-con">
                     <div className="action-link-wrap">
-                    <a href="/" className="link-button">Go to Home Page</a>
+                        <a href="/" className="link-button">Go to Home Page</a>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import Error from './Error/FetchError/FetchError';
+import Loader from "react-loader-spinner";
 import {Link} from 'react-router-dom';
+import Error from './Error/FetchError/FetchError';
 import '../assets/slidebar.scss';
 
 function Slide() {
@@ -96,27 +97,36 @@ function Slide() {
     */
     if (!isLoaded)
         return (
-            <div className="spinner-border text-warning" role="status">
-                <span className="visually-hidden">Loading...</span>
-            </div>
+            <Loader
+                type="BallTriangle"
+                color="#ffa500"
+                height={100}
+                width={100}
+                timeout={3000} //3 secs
+            />
         );
     else if (error)
         return <Error />
     else {
         return (
-            <div className="filters-box">
+            <div className="filters-box is-sticky">
                 <form className="filters">
                     <div className="categories-filter">
-                        <h4 className="filters-titles">Categories</h4>
-                        <div className="list-group">
+                        <div className="row">
+                            <h4 className="col-lg-12 col-xl-12 col-md-12 col-sm-12 text-center">Categories</h4>
+                            {/*<div className="list-group">*/}
                             {categories.map(category => (
-                                <Link className="category" to={`/Animes/Category/${category.attributes.title}`}>
-                                    <a className="list-group-item list-group-item-action category">
-                                        {category.attributes.title}
-                                    </a>
-                                </Link>
+                                <div className="col-lg-6 col-xl-6 col-md-6 col-sm-6 category-box" key={category.id}>
+                                {/*<div className="list-group-item list-group-item-action" key={category.id}>*/}
+                                    <Link className="category-link" to={`/Animes/Category/${category.attributes.title}`}>
+                                        <a className="category">
+                                            {category.attributes.title}
+                                        </a>
+                                    </Link>
+                                </div>
                             ))}
                         </div>
+                        {/*</div>*/}
                     </div>
                 </form>
             </div>
