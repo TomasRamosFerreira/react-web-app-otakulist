@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../assets/error.scss';
+import '../../assets/error.scss';
 
 function FetchError() {
     return (

@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Error from '../components/Error/FetchError/FetchError';
+import Error from '../components/Error/FetchError';
 import axios from 'axios';
 import '../assets/detail.scss';
 
@@ -118,7 +118,7 @@ function Detail({match}) {
     };
 
     const notify = (notification, type) => {
-        switch(type){
+        switch(type) {
             case 1: // Success
                 toast.success(notification);
                 break;

@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import '../assets/nav.scss';
+import logo from '../assets/kitsu_icon.png';
 
 function Nav() {
     const [nav, setNav] = useState(false);
@@ -29,7 +30,7 @@ function Nav() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link to="/" className="link nav-link">
-                    <img className="logo" src="/kitsu_icon.png" alt="logo"/>
+                    <img className="logo" src={logo} alt="logo"/>
                 </Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">

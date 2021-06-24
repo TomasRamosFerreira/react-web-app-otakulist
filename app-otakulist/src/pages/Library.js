@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import Loader from "react-loader-spinner";
-import Detail from './Detail';
 import AnimeCard from '../components/AnimeCard';
-import Error from '../components/Error/FetchError/FetchError';
-import EmptyError from '../components/Error/fetchEmpty/FetchEmpty';
+import Error from '../components/Error/FetchError';
+import EmptyError from '../components/Error/FetchEmpty';
 import '../assets/lib.scss';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -15,7 +14,6 @@ function Library() {
     const [libraryAnimes, setLibraryAnimes] = useState([]);
     const [animes, setAnimes] = useState([]);
     const [page, setPage] = useState(0);
-    const [hasMore, setHasMore] = useState(false);
     const [offset, setOffset] = useState(20);
 
     useEffect(() => {
@@ -32,7 +30,7 @@ function Library() {
                 console.log(res.data);
                 //showAnimesList();
                 console.log(animes);
-                setHasMore(res.data.length);
+                //setHasMore(res.data.length);
             },
             (err) => {
                 setIsLoaded(true);
@@ -42,10 +40,6 @@ function Library() {
     };
     
     const getAnimesFromLibrarry = () => {
-        /*while (libraryAnimes) {
-            
-            //getAnime(libraryAnimes.relationships.anime.data.id);
-        }*/
         libraryAnimes.map(entry => (
             getAnime(entry.relationships.anime.data.id) +
             console.log(entry)
@@ -101,7 +95,7 @@ function Library() {
                         >
                         <div className="row">
                             {animes.map(anime => (
-                                <div className="col-lg-3 col-xl-2 col-md-6 col-sm-6 lib-anime">
+                                <div className="col-lg-3 col-xl-2 col-md-6 col-sm-6 lib-anime" key={anime.id}>
                                     <AnimeCard anime={anime} key={anime.id} />
                                 </div>
                             ))}

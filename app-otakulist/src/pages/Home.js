@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
-import Detail from './Detail';
 import Slidebar from '../components/Slidebar';
 import AnimeCard from '../components/AnimeCard';
-import Error from '../components/Error/FetchError/FetchError';
 import '../assets/home.scss'
 
 function Home() {
@@ -54,7 +52,7 @@ function Home() {
                     <h2>Trending Animes</h2>
                     <div className="row box">    
                         {trendingAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box">
+                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box" key={anime.id}>
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -62,7 +60,7 @@ function Home() {
                     <h2>Android</h2>
                     <div className="row box">    
                         {androidAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box">
+                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box" key={anime.id}>
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -70,7 +68,7 @@ function Home() {
                     <h2>Samurai</h2>
                     <div className="row box">    
                         {samuraiAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box">
+                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box" key={anime.id}>
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}
@@ -78,7 +76,7 @@ function Home() {
                     <h2>Middle School</h2>
                     <div className="row box">    
                         {middleSchooleAnimes.map(anime => (
-                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box">
+                            <div className="col-lg col-xl col-md-6 col-sm-6 home-box" key={anime.id}>
                                 <AnimeCard anime={anime} key={anime.id} />
                             </div>
                         ))}

@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Loader from "react-loader-spinner";
-import Error from '../components/Error/FetchError/FetchError';
-import Detail from './Detail';
+import Error from '../components/Error/FetchError';
 import AnimeCard from '../components/AnimeCard';
 import '../assets/animesList.scss';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Slidebar from '../components/Slidebar';
-import { useHistory } from 'react-router-dom';
 
 function AnimesList({match}) {
-    const history = useHistory();
 
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
@@ -107,7 +104,7 @@ function AnimesList({match}) {
                                 >
                                 <div className="row">
                                     {animes.map(anime => (
-                                        <div className="col-lg-4 col-xl-3 col-md-6 col-sm-6 animes-list">
+                                        <div className="col-lg-4 col-xl-3 col-md-6 col-sm-6 animes-list" key={anime.id}>
                                             <AnimeCard anime={anime} key={anime.id} />
                                         </div>
                                     ))}

@@ -3,18 +3,10 @@ import {Link} from 'react-router-dom';
 import '../assets/card.scss';
 
 function AnimeCard({anime}) {
-    /*
-                        <p className="card-text">
-                            {anime.attributes.synopsis ?
-                                anime.attributes.synopsis :
-                                anime.attributes.description
-                            }
-                        </p>
-    */
     return (
         <div className="poster">
             <Link className="poster-link" to={`/Anime/${anime.id}`}>
-                <div className="card-wrapper" key={anime.id}>
+                <div className="card-wrapper">
                     <div className="card-image">
                         <img className="card-img-top" src={anime.attributes.posterImage.original} alt="Anime"/>
                         <div className="card-overlay">
@@ -29,6 +21,16 @@ function AnimeCard({anime}) {
                             }
                         </h5>
                     </div>
+                    {/*
+                    <div className="card-description">
+                        <p className="card-text">
+                            {anime.attributes.synopsis ?
+                                anime.attributes.synopsis :
+                                anime.attributes.description
+                            }
+                        </p>
+                    </div>
+                    */}
                 </div>
             </Link>
         </div>

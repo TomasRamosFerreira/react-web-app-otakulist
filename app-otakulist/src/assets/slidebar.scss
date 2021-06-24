@@ -11,13 +11,17 @@ $color-background: #f7f7f7;
 }
 
 .categories-filter{
-    margin: 1px;
+    //margin: 1px;
     
     .category-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
         text-align: center;
         margin-top: 0.25rem;
         border: solid 2px $color-background;
+        height: 3.5rem;
 
         .category-link {
             text-decoration: none;
@@ -28,6 +32,8 @@ $color-background: #f7f7f7;
                 //padding: 0.25rem;
                 text-decoration: none;
                 color: $color-primary;
+                //margin-left: -0.25rem;
+                margin-top: 0.75rem;
             }
         }
         
