@@ -1,3 +1,15 @@
+$color-primary: orange;
+$color-primary-white: rgb(252, 186, 64);
+$color-primary-dark: rgb(197, 128, 0);
+$color-darker: rgb(56, 56, 56);
+$color-secondary: white;
+$color-black: black;
+$color-terceiary: rgb(243, 242, 242);
+
+.filtred-by-title {
+    color: $color-primary;
+}
+
 .animes-list-area {
     margin-top: 1rem;
 }
@@ -70,5 +82,11 @@
         }
         margin-left: auto;
         margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .filtred-by-title {
+        text-align: center;
     }
 }

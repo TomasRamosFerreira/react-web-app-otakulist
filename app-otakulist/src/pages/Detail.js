@@ -58,8 +58,8 @@ function Detail({match}) {
                 console.log(res.data);
             },
             (err) => {
-                setIsLoaded(true);
                 setError(err);
+                setIsLoaded(true);
             }
         );
     };
@@ -69,13 +69,13 @@ function Detail({match}) {
         .then(res => res.json())
         .then(
             (res) => {
-                setIsLoaded(true);
                 setAnime(res.data);
                 console.log(res.data);
+                setIsLoaded(true);
             },
             (err) => {
-                setIsLoaded(true);
                 setError(err);
+                setIsLoaded(true);
             }
         );
     };

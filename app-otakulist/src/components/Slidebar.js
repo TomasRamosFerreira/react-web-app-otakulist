@@ -21,13 +21,13 @@ function Slide() {
         .then(res => res.json())
         .then(
             (res) => {
-                setIsLoaded(true);
                 setCategories(res.data);
                 console.log(res.data);
+                setIsLoaded(true);
             },
             (err) => {
-                setIsLoaded(true);
                 setError(err);
+                setIsLoaded(true);
             }
         );
     };
@@ -118,7 +118,7 @@ function Slide() {
                             {categories.map(category => (
                                 <div className="col-lg-12 col-xl-6 col-md-6 col-sm-6 col-6 category-box" key={category.id}>
                                 {/*<div className="list-group-item list-group-item-action" key={category.id}>*/}
-                                    <Link className="category-link" to={`/Animes/Category/${category.attributes.title}`}>
+                                    <Link className="category-link" to={`/Animes/Category/${category.attributes.slug}`}>
                                         <p className="category">
                                             {category.attributes.title}
                                         </p>

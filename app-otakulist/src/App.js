@@ -3,7 +3,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import Library from './pages/Library';
 import Detail from './pages/Detail';
-import AnimesList from './pages/AnimesList';
+import Explore from './pages/Explore';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
       <div className="main">
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/Animes" exact component={AnimesList} />
-          <Route path="/Animes/Search/:search" component={AnimesList} />
-          <Route path="/Animes/Category/:category" component={AnimesList} />
+          <Route path="/Animes" exact component={Explore} />
+          <Route path="/Animes/Search/:search" component={Explore} />
+          <Route path="/Animes/Category/:category" component={Explore} />
           <Route path="/Library" exact component={Library}/>
           <Route path="/Anime/:id" component={Detail} />
         </Switch>

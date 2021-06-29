@@ -21,7 +21,11 @@ function Library() {
     }, [libraryAnimes]);
 
     const getAnime = async (animeID) => {
-        await fetch(`https://kitsu.io/api/edge/anime/${animeID}`)
+        const headers = {
+            'Set-Cookie': 'SameSite=Lax'
+        };
+
+        await fetch(`https://kitsu.io/api/edge/anime/${animeID}`, {headers})
         .then(res => res.json())
         .then(
             (res) => {
